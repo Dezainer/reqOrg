@@ -1,18 +1,7 @@
-import React from 'react'
-import * as UserStore from '../../data/stores/userStore'
+import React from 'react';
+import UsersLogic from './usersLogic'
 
-export default class Users extends React.Component {
-
-	componentDidMount() {
-		this.fetchUsers()
-	}
-
-	fetchUsers() {
-		UserStore.getUsers(this.props.params.gender)
-			.then(users => {
-				this.setState({ users })
-			})
-	}
+export default class Users extends UsersLogic {
 
 	getList() {
 		return this.state.users.length == 0
